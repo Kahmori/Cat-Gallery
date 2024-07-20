@@ -1,0 +1,42 @@
+#main{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  #title{
+    font-family: 'Roboto', sans-serif;
+    font-size: 3.5em;
+    font-weight: 300;
+    text-align: center;
+    margin: 1rem 0;
+    color: #fff;
+  }
+
+  #subtitle{
+    font-size: 1.45em;
+    max-width: 20.75rem;
+    color: #fff;
+  }
+
+  header img{
+    width: 100vw;
+    height: auto;
+  }
+
+  header button{
+    width: 8rem;
+    height: 3rem;
+  }
+
+  #content{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 2rem;
+    top: 5rem;
+    z-index: 2;
+    max-width: 30rem;
+  }
+}
