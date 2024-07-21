@@ -1,19 +1,30 @@
 <div id="main">
-  <section id="initial-banner">
+  <header [class.scrolled]="scrolled">
+    <a href="#initial-banner">  
+      <img src="../favicon.ico" alt="BlackCat" />
+    </a>
+    <ul>
+      <li><a href="#intro">INFO</a></li>
+      <li><a href="#cards-container">GALLERY</a></li>
+      <li><a href="#about-us">ABOUT US</a></li>
+    </ul>
+  </header>
+
+  <section id="initial-banner" (window:scroll)="onScroll()">
     <div id="content">
-      <p id="title">Galeria de Gatos</p>
-      <p id="subtitle">Uma galeria de fotos de gatos para você se divertir!</p>
+      <p id="title">KatzenFinder</p>
+      <p id="subtitle">A cat gallery, to help you to find your ideal pet!</p>
       <a href="#cards-container">
-        <button>Confira</button>
+        <button>GET STARTED</button>
       </a>
     </div>
     <div class="mask"></div>
     <img id="img-main" src="../assets/banner.jpg" alt="cute cat" />
   </section>
 
-  <section class="intro">
+  <section id="intro">
     <h1>Encontre o gato perfeito para você!</h1>
-    <p>Explore nossas páginas e descubra as características únicas de cada raça de gato.</p>
+    <p>Explore nossa página e descubra as características únicas de cada raça de gato.</p>
     <div class="grid">
       <div class="grid-item">
         <img src="../assets/person_search.svg" alt="Search" />
@@ -37,10 +48,22 @@
     <app-card></app-card>
   </section>
 
+  <section id="about-us">
+    <div id="image-container">
+      <img src="../assets/cats-pic.jpg" alt="About Us Image">
+    </div>
+    <div class="section-content">
+      <h1>Sobre Nós</h1>
+      <p>Nossa história começou com a paixão por gatos e a vontade de ajudar as pessoas a encontrar o seu companheiro de vida ideal.</p>
+      <p>Nossa equipe é composta por amantes de gatos que trabalham arduamente para criar uma plataforma onde você possa encontrar informações precisas e confiáveis sobre as diferentes raças de gatos.</p>
+      <p>Nossa missão é ajudar as pessoas a encontrar o gato perfeito para elas, e ao mesmo tempo, promover o bem-estar e a saúde dos gatos.</p>  
+    </div>
+  </section>
+
   <footer id="footer">
     <div>
       <ul class="wrapper">
-        <a href="https://github.com/Kahmori/Cat-Gallery">
+        <a href="https://github.com/Kahmori/Cat-Gallery" target="_blank">
           <li class="icon facebook">
             <span class="tooltip">Facebook</span>
             <svg
@@ -55,7 +78,7 @@
             </svg>
           </li>
         </a>
-        <a href="https://github.com/Kahmori/Cat-Gallery">
+        <a href="https://github.com/Kahmori/Cat-Gallery" target="_blank">
           <li class="icon twitter">
             <span class="tooltip">Twitter</span>
             <svg
@@ -71,7 +94,7 @@
             </svg>
           </li>
         </a>
-        <a href="https://github.com/Kahmori/Cat-Gallery">
+        <a href="https://github.com/Kahmori/Cat-Gallery" target="_blank">
           <li class="icon instagram">
             <span class="tooltip">Instagram</span>
             <svg

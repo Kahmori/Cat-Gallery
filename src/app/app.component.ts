@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-cat-gallery';
+  scrolled = false;
+
+  onScroll() {
+    const scrollPosition = window.scrollY;
+    const threshold = 0;
+
+    if (scrollPosition > threshold) {
+      this.scrolled = true;
+    } else {
+      this.scrolled = false;
+    }
+  }
 }
