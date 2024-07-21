@@ -1,16 +1,10 @@
-<div class="card">
-  <img src="../../assets/cats.jpg" alt="Cat image"> <!--reference_image_id e joga na outra api-->
-  <div class="card-content">
-    <h2>Cat Name</h2> <!--name-->
-    <p>Descrição do meu gato fofinho</p> <!--description-->
+<div id="grid">
+  <div class="card" *ngFor="let breed of breeds">
+    <img [src]="breed.imageUrl" alt="Cat Image">
+    <div class="card-content">
+      <h2> {{ breed.name }} </h2>
+      <p> {{ breed.description }} </p>
+      <a [href]="breed.wikipedia_url" target="_blank"> Saiba Mais </a>
+    </div>
   </div>
-  <p>wikipedia_url</p>
 </div>
-
-<!--<div class="card">
-  <img [src]="cat.url" alt="Cat image">
-  <div class="card-content">
-    <h2>{{ cat.breeds[0].name }}</h2>
-    <p>{{ cat.breeds[0].description }}</p>
-  </div>
-</div>-->

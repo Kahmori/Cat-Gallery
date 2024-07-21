@@ -1,7 +1,15 @@
+#grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 2rem;
+  padding: 4rem;
+}
+
 .card {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 20rem;
   padding: 16px;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -19,6 +27,10 @@
   .card-content {
     padding: 16px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(100% - 190px);
 
     h2 {
       font-size: 18px;
