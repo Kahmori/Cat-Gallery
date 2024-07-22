@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+import { BreedModel, DetailBreedModel } from 'src/app/models/BreedModel';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,12 +15,12 @@ export class CatApiService {
     private http: HttpClient,
   ) { }
 
-  getList() : Observable<any>{
-    return this.http.get(this.apiUrl);
+  getList() : Observable<BreedModel[]>{
+    return this.http.get<BreedModel[]>(this.apiUrl);
   }
 
-  getCatDetails(imageId: string) : Observable<any>{
+  getCatDetails(imageId: string) : Observable<DetailBreedModel>{
     const imageUrl = `${this.detailedUrl}${imageId}`;
-    return this.http.get(imageUrl);
+    return this.http.get<DetailBreedModel>(imageUrl);
   }
 }

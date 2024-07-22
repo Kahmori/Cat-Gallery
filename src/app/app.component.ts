@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'my-cat-gallery';
+  title = 'KatzenFinder';
   scrolled = false;
 
   onScroll() {
