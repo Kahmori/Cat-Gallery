@@ -1,0 +1,12 @@
+<carousel [cellsToShow]="1" [cellsToScroll]="1" [arrows]="true">
+  <ng-container *ngFor="let breed of breeds">
+    <div class="card">
+      <img [src]="breed.imageUrl" alt="Cat Image">
+      <div class="card-content">
+        <h2>{{ breed.name }}</h2>
+        <p>{{ breed.description }}</p>
+        <a [href]="breed.wikipedia_url" target="_blank">Saiba Mais</a>
+      </div>
+    </div>
+  </ng-container>
+</carousel>

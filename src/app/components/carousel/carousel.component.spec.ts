@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { CardComponent } from './card.component';
+import { CarouselComponent } from './carousel.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CatApiService } from 'src/app/services/cat-api/cat-api.service';
 
@@ -53,13 +53,13 @@ const mockBreeds = apiBreeds.map(breed => ({
   wikipedia_url: breed.wikipedia_url
 }));
 
-describe('CardComponent', () => {
-  let component: CardComponent;
-  let fixture: ComponentFixture<CardComponent>;
+describe('CarouselComponent', () => {
+  let component: CarouselComponent;
+  let fixture: ComponentFixture<CarouselComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CardComponent ],
+      declarations: [ CarouselComponent ],
       providers: [ CatApiService ],
       imports: [ HttpClientTestingModule ]
     })
@@ -67,7 +67,7 @@ describe('CardComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CardComponent);
+    fixture = TestBed.createComponent(CarouselComponent);
     component = fixture.componentInstance;
     component.breeds = mockBreeds;
     fixture.detectChanges();
@@ -97,5 +97,34 @@ describe('CardComponent', () => {
       expect(p.textContent.replace(/\u00A0/g, ' ').trim()).toBe(breed.description);
       expect(a.href).toBe(breed.wikipedia_url);
     });
+  });
+
+  it('should set carousel properties correctly', () => {
+    expect(component.cellsToShow).toBe(1);
+    expect(component.cellsToScroll).toBe(1);
+    expect(component.arrows).toBeTrue();
+  });
+
+  it('should render alternative text for images', () => {
+    const cards = fixture.debugElement.queryAll(By.css('.card img'));
+    cards.forEach((card, index) => {
+      const breed = mockBreeds[index];
+      expect(card.nativeElement.alt).toBe('Cat Image');
+    });
+  });
+
+  it('should handle empty breeds list correctly', () => {
+    component.breeds = [];
+    fixture.detectChanges();
+    const cards = fixture.debugElement.queryAll(By.css('.card'));
+    expect(cards.length).toBe(0);
+  });
+
+  it('should render correct number of items when breeds list is large', () => {
+    const largeBreeds = Array(50).fill(mockBreeds[0]);
+    component.breeds = largeBreeds;
+    fixture.detectChanges();
+    const cards = fixture.debugElement.queryAll(By.css('.card'));
+    expect(cards.length).toBe(largeBreeds.length);
   });
 });

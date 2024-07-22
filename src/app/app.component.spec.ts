@@ -64,10 +64,10 @@ describe('AppComponent', () => {
     expect(gridItems.length).toBe(3);
   });
 
-  it('should render the cards component in the cards-container section', () => {
+  it('should render the carousel component in the cards-container section', () => {
     fixture.detectChanges();
-    const cardsContainer = compiled.querySelector('#cards-container app-card');
-    expect(cardsContainer).toBeTruthy();
+    const carouselContainer = compiled.querySelector('#cards-container app-carousel');
+    expect(carouselContainer).toBeTruthy();
   });
 
   it('should render the footer with social media links', () => {

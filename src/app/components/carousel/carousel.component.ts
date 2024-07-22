@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CatApiService } from '../../services/cat-api/cat-api.service';
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  selector: 'app-carousel',
+  templateUrl: './carousel.component.html',
+  styleUrls: ['./carousel.component.scss']
 })
-export class CardComponent implements OnInit {
+export class CarouselComponent implements OnInit {
+  @Input() cellsToShow: number = 1;
+  @Input() cellsToScroll: number = 1;
+  @Input() arrows: boolean = true;
   breeds: any[] = [];
 
-  constructor(private catApiService: CatApiService) { }
+  constructor(
+    private catApiService: CatApiService) { }
 
   ngOnInit(): void {
     this.catApiService.getList().subscribe((response: any) => {
