@@ -1,4 +1,9 @@
-<carousel [cellsToShow]="1" [cellsToScroll]="1" [arrows]="true">
+<carousel 
+  [cellsToShow]="1" 
+  [cellsToScroll]="1" 
+  [arrows]="true"
+  [autoplay]="true" 
+  [autoplayInterval]="6000">
   <ng-container *ngFor="let breed of breeds">
     <div class="card">
       <img [src]="breed.imageUrl" alt="Cat Image">
