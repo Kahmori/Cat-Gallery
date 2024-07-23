@@ -1,71 +1,73 @@
-<div id="main">
-  <header [class.scrolled]="scrolled">
-    <a href="#initial-banner">  
-      <img src="../favicon.ico" alt="BlackCat" />
+<main id="main" role="main">
+  <header [class.scrolled]="scrolled" aria-label="Header">
+    <a href="#initial-banner" tabindex="0" aria-label="Go to Initial Section">  
+      <img src="../favicon.ico" alt="BlackCat Logo" />
     </a>
-    <ul>
-      <li><a href="#intro">INFO</a></li>
-      <li><a href="#cards-container">GALLERY</a></li>
-      <li><a href="#about-us">ABOUT US</a></li>
-    </ul>
+    <nav aria-label="Main Navigation" role="navigation">
+      <ul>
+        <li><a href="#intro" tabindex="0" aria-label="Go to Info Section">INFO</a></li>
+        <li><a href="#cards-container" tabindex="0" aria-label="Go to Gallery Section">GALLERY</a></li>
+        <li><a href="#about-us" tabindex="0" aria-label="Go to About Us Section">ABOUT US</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <section id="initial-banner" (window:scroll)="onScroll()">
+  <section id="initial-banner" (window:scroll)="onScroll()" role="region" aria-labelledby="initial-banner-heading">
     <div id="content">
-      <h1 id="title">KatzenFinder</h1>
+      <h1 id="initial-banner-heading">KatzenFinder</h1>
       <p id="subtitle">A cat gallery, to help you to find your ideal pet!</p>
-      <a href="#cards-container">
-        <button>GET STARTED</button>
+      <a href="#cards-container" tabindex="0">
+        <button aria-label="Get started with finding your ideal pet" role="button">GET STARTED</button>
       </a>
     </div>
     <div class="mask"></div>
-    <img id="img-main" src="../assets/banner.jpg" alt="cute cat" />
+    <img id="img-main" src="../assets/banner.jpg" alt="Black Cat Picture as Background" />
   </section>
 
-  <section id="intro">
-    <h1>Find the perfect cat for you!</h1>
+  <section id="intro" role="region" aria-labelledby="intro-heading">
+    <h1 id="intro-heading">Find the perfect cat for you!</h1>
     <p>Explore our page and discover the unique characteristics of each cat breed.</p>
     <div class="grid">
       <div class="grid-item">
-        <img src="../assets/person_search.svg" alt="Search" />
+        <img src="../assets/person_search.svg" alt="Person with Magnifying Glass Icon" />
         <h2>Get to know cat breeds</h2>
         <p>Discover the characteristics and curiosities of each cat breed.</p>
       </div>
       <div class="grid-item">
-        <img src="../assets/family_star.svg" alt="Friendly Star" />
+        <img src="../assets/family_star.svg" alt="Happy Star Icon" />
         <h2>Find your ideal cat</h2>
         <p>Use our page to find the cat that best fits your lifestyle and personality.</p>
       </div>
       <div class="grid-item">
-        <img src="../assets/pets.svg" alt="Pets" />
+        <img src="../assets/pets.svg" alt="Cat Paw Icon" />
         <h2>Learn more about cats</h2>
         <p>Learn about cat care, health, and behavior, and how to create a happy and healthy environment for them.</p>
       </div>
     </div>
   </section>
 
-  <section id="cards-container">
-    <h1>Cat Breeds</h1>
+  <section id="cards-container" role="region" aria-labelledby="gallery-heading">
+    <h1 id="gallery-heading">Cat Breeds</h1>
     <app-carousel></app-carousel>
   </section>
 
-  <section id="about-us">
+  <section id="about-us" role="region" aria-labelledby="about-us-heading">
     <div id="image-container">
-      <img src="../assets/cats-pic.jpg" alt="About Us Image">
+      <img src="../assets/cats-pic.jpg" alt="Cats in a Basket Image" />
     </div>
     <div class="section-content">
-      <h1>About Us</h1>
+      <h1 id="about-us-heading">About Us</h1>
       <p>Our story began with a passion for cats and a desire to help people find their ideal life companion.</p>
       <p>Our team is composed of cat lovers who work hard to create a platform where you can find accurate and reliable information about different cat breeds.</p>
       <p>Our mission is to help people find the perfect cat for them, while promoting the welfare and health of cats.</p>  
     </div>
   </section>
 
-  <footer id="footer">
+  <footer id="footer" aria-label="Footer">
     <div>
-      <ul class="wrapper">
-        <a href="https://github.com/Kahmori/Cat-Gallery" target="_blank">
-          <li class="icon facebook">
+      <ul class="wrapper" aria-label="Social Media Links">
+        <a href="https://github.com/Kahmori/Cat-Gallery" target="_blank" aria-label="Facebook" tabindex="0">
+          <li class="icon facebook" aria-label="Facebook Icon">
             <span class="tooltip">Facebook</span>
             <svg
               viewBox="0 0 320 512"
@@ -79,8 +81,8 @@
             </svg>
           </li>
         </a>
-        <a href="https://github.com/Kahmori/Cat-Gallery" target="_blank">
-          <li class="icon twitter">
+        <a href="https://github.com/Kahmori/Cat-Gallery" target="_blank" aria-label="Twitter" tabindex="0">
+          <li class="icon twitter" aria-label="Twitter Icon">
             <span class="tooltip">Twitter</span>
             <svg
               height="1.8em"
@@ -95,8 +97,8 @@
             </svg>
           </li>
         </a>
-        <a href="https://github.com/Kahmori/Cat-Gallery" target="_blank">
-          <li class="icon instagram">
+        <a href="https://github.com/Kahmori/Cat-Gallery" target="_blank" aria-label="Instagram" tabindex="0">
+          <li class="icon instagram" aria-label="Instagram Icon">
             <span class="tooltip">Instagram</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -118,4 +120,4 @@
       <p>Copyright &copy; 2024. All rights reserved.</p>
     </div>
   </footer>
-</div>
+</main>
