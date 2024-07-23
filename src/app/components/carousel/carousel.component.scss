@@ -21,6 +21,12 @@
     max-height: 20rem;
     object-fit: cover;
     border-radius: 10px 10px 0 0;
+    transition: transform 0.5s; 
+    transform: scale(1);
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   .card-content {
@@ -66,11 +72,12 @@
 @media screen and (max-width: 900px) {
   .card{
     flex-direction: column !important;
-    padding: 1.5rem !important;
+    padding: 1.75rem !important;
   }
 
   .card-content{
     max-width: 12rem !important;
+    padding: 1.5rem 0 !important;
   }
 
   .carousel{

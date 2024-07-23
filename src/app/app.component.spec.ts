@@ -19,6 +19,28 @@ describe('AppComponent', () => {
   it('should create the app', () => {
     expect(app).toBeTruthy();
   });
+  
+  it('should set scrolled to false when window is not scrolled', () => {
+    window.scrollY = 0;
+    app.onScroll();
+    expect(app.scrolled).toBeFalse();
+  });
+  
+  it('should log an error message when handleError is called', () => {
+    spyOn(console, 'error');
+    const error = new Error('Test error');
+    app.handleError(error);
+    expect(console.error).toHaveBeenCalledTimes(1);
+    expect(console.error).toHaveBeenCalledWith('An error occurred:', error.message);
+  });
+  
+  it('should display an alert when handleError is called', () => {
+    spyOn(window, 'alert');
+    const error = new Error('Test error');
+    app.handleError(error);
+    expect(window.alert).toHaveBeenCalledTimes(1);
+    expect(window.alert).toHaveBeenCalledWith(`An error occurred: ${error.message}`);
+  });
 
   it(`should have as title 'KatzenFinder'`, () => {
     expect(app.title).toEqual('KatzenFinder');

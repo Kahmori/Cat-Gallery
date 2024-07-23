@@ -10,13 +10,22 @@ export class AppComponent {
   scrolled = false;
 
   onScroll() {
-    const scrollPosition = window.scrollY;
-    const threshold = 0;
+    try {
+      const scrollPosition = window.scrollY;
+      const threshold = 0;
 
-    if (scrollPosition > threshold) {
-      this.scrolled = true;
-    } else {
-      this.scrolled = false;
+      if (scrollPosition > threshold) {
+        this.scrolled = true;
+      } else {
+        this.scrolled = false;
+      }
+    } catch (error) {
+      this.handleError(error);
     }
+  }
+
+  handleError(error: any) {
+    console.error('An error occurred:', error.message);
+    alert('An error occurred: ' + error.message);
   }
 }
