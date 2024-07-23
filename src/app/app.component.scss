@@ -349,6 +349,12 @@
   }
 }
 
+@media screen and (min-width:900px) and (max-width:1250px) {
+  #cards-container{
+    padding: 8.5rem 0 4rem 0 !important;
+  }
+}
+
 @media (max-width: 900px) {
   header{
 
