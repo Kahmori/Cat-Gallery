@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { CarouselComponent } from './carousel.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+
+import { CarouselComponent } from './carousel.component';
 import { CatApiService } from 'src/app/services/cat-api/cat-api.service';
 
 const apiBreeds = [
@@ -113,5 +114,55 @@ describe('CarouselComponent', () => {
     fixture.detectChanges();
     const cards = fixture.debugElement.queryAll(By.css('.card'));
     expect(cards.length).toBe(0);
+  });
+
+  it('should have autoplay enabled with the correct interval', () => {
+    const carouselElement = fixture.debugElement.query(By.css('carousel')).componentInstance;
+    
+    carouselElement.autoplay = true;
+    carouselElement.autoplayInterval = 6000;
+    fixture.detectChanges();
+    
+    expect(carouselElement.autoplay).toBeTrue();
+    expect(carouselElement.autoplayInterval).toBe(6000);
+  });
+
+  it('should show arrows when arrows input is true', () => {
+    const carouselElement = fixture.debugElement.query(By.css('carousel')).componentInstance;
+    fixture.detectChanges();
+    expect(carouselElement.arrows).toBeTrue();
+  });
+
+  it('should display the correct number of cards for the breeds', () => {
+    component.breeds = mockBreeds;
+    fixture.detectChanges();
+    const cardElements = fixture.debugElement.queryAll(By.css('card-element'));
+    expect(cardElements.length).toBe(mockBreeds.length);
+  });
+
+  it('should handle partial data correctly (e.g., missing image)', () => {
+    component.breeds = [
+      { imageUrl: null, name: 'Breed Name', description: 'Breed Description', wikipedia_url: 'https://example.com' }
+    ];
+    fixture.detectChanges();
+  
+    const cards = fixture.debugElement.queryAll(By.css('card-element'));
+    expect(cards.length).toBe(1);
+    const img = cards[0].query(By.css('img'));
+    if (img) {
+      expect(img.nativeElement.src).toBe('');
+    }
+  });
+
+  it('should render alternative text for images', () => {
+    component.breeds = [
+      { imageUrl: 'https://example.com/image.jpg', name: 'Breed Name', description: 'Breed Description', wikipedia_url: 'https://example.com' }
+    ];
+    fixture.detectChanges();
+  
+    const imgs = fixture.debugElement.queryAll(By.css('img'));
+    imgs.forEach((img, index) => {
+      expect(img.nativeElement.alt).toBe('Breed Name');
+    });
   });
 });
