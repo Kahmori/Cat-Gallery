@@ -5,21 +5,13 @@
   [cellsToScroll]="1" 
   [arrows]="true"
   [autoplay]="true" 
-  [autoplayInterval]="6000"
-  [lightDOM]="true">
-  <ng-container *ngFor="let breed of breeds">
-    <div class="card">
-      <img [src]="breed.imageUrl" alt="{{ breed.name }} Cat Image" />
-      <div class="card-content">
-        <h2>{{ breed.name }}</h2>
-        <p>{{ breed.description }}</p>
-        <a 
-          [href]="breed.wikipedia_url" 
-          target="_blank" 
-          [attr.aria-label]="'Learn more about ' + breed.name">
-          Saiba Mais
-        </a>
-      </div>
+  [autoplayInterval]="6000">
+    <div *ngFor="let breed of breeds">
+      <card-element
+        [imageUrl]="breed.imageUrl"
+        [name]="breed.name"
+        [description]="breed.description"
+        [wikipediaUrl]="breed.wikipedia_url">
+      </card-element>
     </div>
-  </ng-container>
 </carousel>

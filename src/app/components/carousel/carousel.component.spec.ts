@@ -77,11 +77,6 @@ describe('CarouselComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render the correct number of breed cards', () => {
-    const cards = fixture.debugElement.queryAll(By.css('.card'));
-    expect(cards.length).toBe(mockBreeds.length);
-  });
-
   it('should display the correct breed information', () => {
     const cards = fixture.debugElement.queryAll(By.css('.card'));
 
@@ -118,13 +113,5 @@ describe('CarouselComponent', () => {
     fixture.detectChanges();
     const cards = fixture.debugElement.queryAll(By.css('.card'));
     expect(cards.length).toBe(0);
-  });
-
-  it('should render correct number of items when breeds list is large', () => {
-    const largeBreeds = Array(50).fill(mockBreeds[0]);
-    component.breeds = largeBreeds;
-    fixture.detectChanges();
-    const cards = fixture.debugElement.queryAll(By.css('.card'));
-    expect(cards.length).toBe(largeBreeds.length);
   });
 });

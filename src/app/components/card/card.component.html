@@ -1,0 +1,10 @@
+<div class="card">
+  <img [src]="imageUrl" alt="{{ name }} Cat Image" />
+  <div class="card-content">
+    <h2>{{ name }}</h2>
+    <p>{{ description }}</p>
+    <a [href]="wikipediaUrl" target="_blank" [attr.aria-label]="'Learn more about ' + name">
+      Saiba Mais
+    </a>
+  </div>
+</div>

@@ -48,7 +48,7 @@ describe('AppComponent', () => {
 
   it('should render title in the initial banner', () => {
     fixture.detectChanges();
-    const title = compiled.querySelector('#title')?.textContent;
+    const title = compiled.querySelector('#initial-banner-heading')?.textContent;
     expect(title).toContain('KatzenFinder');
   });
 
