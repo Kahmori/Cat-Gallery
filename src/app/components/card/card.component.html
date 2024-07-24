@@ -1,5 +1,5 @@
 <div class="card">
-  <img [src]="imageUrl" alt="{{ name }} Cat Image" />
+  <img [src]="imageUrl" [attr.loading]="'lazy'" alt="{{ name }} Cat Image" />
   <div class="card-content">
     <h2>{{ name }}</h2>
     <p>{{ description }}</p>
