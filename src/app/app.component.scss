@@ -413,11 +413,12 @@
   #intro{
 
     h1{
-      font-size: 1.75em !important;
+      font-size: 1.5em !important;
     }
 
-    p:first-of-type{
+    #intro-subtitle{
       font-size: 1.25em !important;
+      margin: 0 8%;
     }
   }
 
